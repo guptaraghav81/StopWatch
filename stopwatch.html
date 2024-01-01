@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stopwatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body{
+            display: flex;
+            margin: 0px;
+            background-color:#31304D ;
+            justify-content: center;
+            align-items: center;
+        }
+        .time{
+            color: goldenrod;
+        }
+        .container{
+            border-radius: 25 px;
+            display: flex;
+            flex-direction: column;
+            /* flex-wrap: wrap; */
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+        }
+        .digit{
+            font-size: 150px;
+        }
+        .text{
+            font-size: 30px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="time">
+                <span class="digit" id="hr">00</span>
+                <span class="text">hr</span>
+                <span class="digit" id="min">00</span>
+                <span class="text">Min</span>
+                <span class="digit" id="sec">00</span>
+                <span class="text" >Sec</span>
+                <span class="digit" id="count">00</span>
+                
+        </div>
+            <div class="btn">
+                <button type="button" class="btn btn-success" onclick="start()">Start</button>
+                <button type="button" class="btn btn-danger" onclick="stop()">Stop</button>
+                <button type="button" class="btn btn-warning" onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="stopwatch.js"></script>
+  </body>
+</html>
