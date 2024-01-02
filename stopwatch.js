@@ -4,19 +4,29 @@ var hr = 0;
     var count = 0;
     var timer = false;
     var startTime;
+    var pauseTime;
     var timeout;
 
     function start() {
         if (!timer) {
+            if (pauseTime) {
+                // Adjust the starting time by the time paused
+                startTime += (performance.now() - pauseTime);
+                pauseTime = null;
+            } else {
+                startTime = performance.now();
+            }
             timer = true;
-            startTime = performance.now();
             stopwatch();
         }
     }
 
     function stop() {
-        timer = false;
-        clearTimeout(timeout);
+        if (timer) {
+            pauseTime = performance.now();
+            timer = false;
+            clearTimeout(timeout);
+        }
     }
 
     function reset() {
@@ -39,6 +49,8 @@ var hr = 0;
             hr = Math.floor(min / 60);
 
             count %= 100; // Reset count to 0 after reaching 100
+            sec %= 60;   // Reset seconds to 0 after reaching 60
+            min %= 60;   // Reset minutes to 0 after reaching 60
 
             updateDisplay();
 
